@@ -1,1 +1,1685 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0f766e">
+<meta name="description" content="JASA ONLINE - Pemesanan telur secara online, cepat dan praktis.">
 
+<title>JASA ONLINE | Pesan Telur Online</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+:root{
+    --primary:#0f766e;
+    --primary-dark:#115e59;
+    --green:#16a34a;
+    --green-dark:#15803d;
+    --orange:#f59e0b;
+    --dark:#17202a;
+    --muted:#64748b;
+    --white:#ffffff;
+    --bg:#f8fafc;
+    --border:#e2e8f0;
+    --danger:#dc2626;
+    --shadow:0 8px 25px rgba(15,23,42,.08);
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--bg);
+    color:var(--dark);
+    line-height:1.5;
+}
+
+button,
+input,
+select,
+textarea{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    background:linear-gradient(135deg,#0f766e,#115e59);
+    color:white;
+    padding:22px 16px 30px;
+    overflow:hidden;
+}
+
+.header-inner{
+    max-width:1100px;
+    margin:auto;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo{
+    width:54px;
+    height:54px;
+    border-radius:16px;
+    background:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+    box-shadow:0 5px 15px rgba(0,0,0,.18);
+}
+
+.brand h1{
+    font-size:25px;
+    font-weight:800;
+}
+
+.brand p{
+    font-size:13px;
+    opacity:.9;
+}
+
+.hero{
+    margin-top:24px;
+}
+
+.hero h2{
+    font-size:28px;
+    margin-bottom:7px;
+}
+
+.hero p{
+    font-size:14px;
+    opacity:.94;
+    max-width:680px;
+}
+
+/* ================= STATUS ================= */
+
+.status{
+    max-width:1100px;
+    margin:-18px auto 20px;
+    padding:0 14px;
+    position:relative;
+}
+
+.status-box{
+    background:white;
+    border-radius:16px;
+    box-shadow:var(--shadow);
+    padding:14px 16px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.status-dot{
+    width:11px;
+    height:11px;
+    border-radius:50%;
+    background:#22c55e;
+    box-shadow:0 0 0 5px #dcfce7;
+}
+
+.status-box strong{
+    display:block;
+    font-size:14px;
+}
+
+.status-box span{
+    display:block;
+    color:var(--muted);
+    font-size:12px;
+}
+
+/* ================= CONTAINER ================= */
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:0 14px 55px;
+}
+
+.section-title{
+    margin:25px 0 14px;
+}
+
+.section-title h2{
+    font-size:21px;
+}
+
+.section-title p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================= PRODUK ================= */
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.product{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:15px;
+    box-shadow:0 4px 14px rgba(15,23,42,.04);
+    transition:.2s;
+}
+
+.product:hover{
+    transform:translateY(-2px);
+    box-shadow:var(--shadow);
+}
+
+.product-icon{
+    height:130px;
+    border-radius:14px;
+    background:linear-gradient(135deg,#fef3c7,#fff7ed);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:70px;
+    margin-bottom:14px;
+}
+
+.product h3{
+    font-size:17px;
+    margin-bottom:4px;
+}
+
+.product .unit{
+    color:var(--muted);
+    font-size:12px;
+    margin-bottom:10px;
+}
+
+.price{
+    font-size:19px;
+    font-weight:800;
+    color:var(--primary);
+    margin-bottom:13px;
+}
+
+.add-btn{
+    width:100%;
+    border:0;
+    background:var(--primary);
+    color:white;
+    padding:12px;
+    border-radius:11px;
+    font-weight:700;
+    font-size:14px;
+}
+
+.add-btn:hover{
+    background:var(--primary-dark);
+}
+
+/* ================= KERANJANG ================= */
+
+.cart-section{
+    margin-top:28px;
+}
+
+.cart{
+    background:white;
+    border-radius:18px;
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+    overflow:hidden;
+}
+
+.cart-head{
+    padding:17px;
+    background:#ecfdf5;
+    border-bottom:1px solid #d1fae5;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.cart-head h2{
+    font-size:19px;
+}
+
+.cart-count{
+    background:var(--primary);
+    color:white;
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.empty{
+    text-align:center;
+    padding:35px 15px;
+    color:var(--muted);
+}
+
+.empty-icon{
+    font-size:45px;
+    margin-bottom:8px;
+}
+
+.cart-items{
+    padding:5px 17px;
+}
+
+.cart-item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding:15px 0;
+    border-bottom:1px solid var(--border);
+}
+
+.cart-info{
+    flex:1;
+}
+
+.cart-info strong{
+    font-size:14px;
+}
+
+.cart-info small{
+    display:block;
+    color:var(--muted);
+    font-size:12px;
+    margin-top:3px;
+}
+
+.qty{
+    display:flex;
+    align-items:center;
+    gap:7px;
+}
+
+.qty button{
+    width:31px;
+    height:31px;
+    border:1px solid var(--border);
+    background:white;
+    border-radius:8px;
+    font-size:18px;
+}
+
+.qty span{
+    min-width:22px;
+    text-align:center;
+    font-weight:bold;
+}
+
+.item-total{
+    min-width:110px;
+    text-align:right;
+    font-weight:bold;
+    font-size:14px;
+}
+
+.remove{
+    border:0;
+    background:none;
+    color:var(--danger);
+    font-size:12px;
+    margin-top:5px;
+}
+
+.cart-summary{
+    padding:17px;
+}
+
+.summary-row{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    padding:6px 0;
+    font-size:14px;
+}
+
+.summary-total{
+    border-top:2px solid var(--border);
+    margin-top:8px;
+    padding-top:13px;
+    font-size:20px;
+    font-weight:800;
+    color:var(--primary);
+}
+
+/* ================= FORM ================= */
+
+.form-section{
+    margin-top:28px;
+}
+
+.form-card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:18px;
+    box-shadow:var(--shadow);
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+}
+
+.form-group{
+    margin-bottom:14px;
+}
+
+.form-group.full{
+    grid-column:1/-1;
+}
+
+label{
+    display:block;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:6px;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    border:1px solid #cbd5e1;
+    border-radius:10px;
+    padding:12px;
+    font-size:14px;
+    outline:none;
+    background:white;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:var(--primary);
+    box-shadow:0 0 0 3px rgba(15,118,110,.1);
+}
+
+textarea{
+    min-height:90px;
+    resize:vertical;
+}
+
+/* ================= ORDER BUTTON ================= */
+
+.order-btn{
+    width:100%;
+    border:0;
+    background:var(--green);
+    color:white;
+    padding:15px;
+    border-radius:12px;
+    font-size:16px;
+    font-weight:800;
+    margin-top:8px;
+}
+
+.order-btn:hover{
+    background:var(--green-dark);
+}
+
+/* ================= INFO ================= */
+
+.info{
+    margin-top:28px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+}
+
+.info-box{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:18px;
+    text-align:center;
+}
+
+.info-box .icon{
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+.info-box h3{
+    font-size:15px;
+    margin-bottom:4px;
+}
+
+.info-box p{
+    font-size:12px;
+    color:var(--muted);
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:28px 15px;
+}
+
+footer strong{
+    font-size:18px;
+}
+
+footer p{
+    color:#94a3b8;
+    font-size:12px;
+    margin-top:5px;
+}
+
+.footer-wa{
+    display:inline-block;
+    margin-top:14px;
+    color:white;
+    background:var(--green);
+    padding:10px 18px;
+    border-radius:9px;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:bold;
+}
+
+/* ================= FLOATING WHATSAPP ================= */
+
+.floating-wa{
+    position:fixed;
+    right:17px;
+    bottom:17px;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:var(--green);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    text-decoration:none;
+    box-shadow:0 8px 25px rgba(0,0,0,.22);
+    z-index:99;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:560px){
+
+    .header{
+        padding:18px 14px 25px;
+    }
+
+    .brand h1{
+        font-size:21px;
+    }
+
+    .hero h2{
+        font-size:23px;
+    }
+
+    .products{
+        grid-template-columns:1fr 1fr;
+        gap:10px;
+    }
+
+    .product{
+        padding:12px;
+    }
+
+    .product-icon{
+        height:100px;
+        font-size:55px;
+    }
+
+    .product h3{
+        font-size:14px;
+    }
+
+    .price{
+        font-size:16px;
+    }
+
+    .add-btn{
+        padding:10px 7px;
+        font-size:12px;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-group.full{
+        grid-column:auto;
+    }
+
+    .cart-item{
+        flex-wrap:wrap;
+    }
+
+    .item-total{
+        width:100%;
+        text-align:left;
+    }
+
+    .info{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <div class="header-inner">
+
+        <div class="brand">
+
+            <div class="logo">
+                🥚
+            </div>
+
+            <div>
+                <h1>JASA ONLINE</h1>
+                <p>Pemesanan telur secara online</p>
+            </div>
+
+        </div>
+
+        <div class="hero">
+
+            <h2>Pesan Telur Jadi Lebih Mudah</h2>
+
+            <p>
+                Pilih produk, tentukan jumlah, isi data pemesan,
+                lalu kirim pesanan langsung melalui WhatsApp.
+            </p>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- ================= STATUS ================= -->
+
+<div class="status">
+
+    <div class="status-box">
+
+        <div class="status-dot"></div>
+
+        <div>
+
+            <strong>
+                Pelayanan Online
+            </strong>
+
+            <span>
+                Pesanan diproses setelah dikonfirmasi oleh admin.
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="container">
+
+
+    <!-- PRODUK -->
+
+    <div class="section-title">
+
+        <h2>
+            🥚 Pilih Produk
+        </h2>
+
+        <p>
+            Silakan pilih telur yang ingin Anda pesan.
+        </p>
+
+    </div>
+
+
+    <div
+        id="products"
+        class="products"
+    ></div>
+
+
+    <!-- KERANJANG -->
+
+    <section class="cart-section">
+
+        <div class="section-title">
+
+            <h2>
+                🛒 Keranjang Pesanan
+            </h2>
+
+            <p>
+                Periksa jumlah produk sebelum melakukan pemesanan.
+            </p>
+
+        </div>
+
+
+        <div class="cart">
+
+
+            <div class="cart-head">
+
+                <h2>
+                    Pesanan Anda
+                </h2>
+
+                <div class="cart-count">
+
+                    <span id="cartCount">
+                        0
+                    </span>
+
+                    item
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="cartItems"
+                class="cart-items"
+            ></div>
+
+
+            <div
+                id="emptyCart"
+                class="empty"
+            >
+
+                <div class="empty-icon">
+                    🛒
+                </div>
+
+                <p>
+                    Keranjang masih kosong.
+                </p>
+
+                <small>
+                    Pilih produk telur di atas.
+                </small>
+
+            </div>
+
+
+            <div class="cart-summary">
+
+                <div class="summary-row">
+
+                    <span>
+                        Subtotal
+                    </span>
+
+                    <strong id="subtotal">
+                        Rp0
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Biaya pengantaran
+                    </span>
+
+                    <strong id="deliveryCost">
+                        Rp0
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-row summary-total">
+
+                    <span>
+                        TOTAL
+                    </span>
+
+                    <span id="grandTotal">
+                        Rp0
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DATA PEMESAN -->
+
+    <section class="form-section">
+
+        <div class="section-title">
+
+            <h2>
+                📝 Data Pemesan
+            </h2>
+
+            <p>
+                Isi data dengan benar agar pesanan dapat diproses.
+            </p>
+
+        </div>
+
+
+        <div class="form-card">
+
+            <div class="form-grid">
+
+
+                <div class="form-group">
+
+                    <label for="customerName">
+                        Nama Lengkap *
+                    </label>
+
+                    <input
+                        id="customerName"
+                        type="text"
+                        placeholder="Contoh: Budi"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="customerPhone">
+                        Nomor WhatsApp *
+                    </label>
+
+                    <input
+                        id="customerPhone"
+                        type="tel"
+                        placeholder="Contoh: 081234567890"
+                    >
+
+                </div>
+
+
+                <div class="form-group full">
+
+                    <label for="delivery">
+                        Metode Pesanan *
+                    </label>
+
+                    <select id="delivery">
+
+                        <option value="Antar">
+                            🚚 Antar ke alamat
+                        </option>
+
+                        <option value="Ambil Sendiri">
+                            🏪 Ambil sendiri
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group full">
+
+                    <label for="address">
+                        Alamat Pengantaran *
+                    </label>
+
+                    <textarea
+                        id="address"
+                        placeholder="Tuliskan alamat lengkap, nama jalan, nomor rumah, kelurahan, dan patokan..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-group full">
+
+                    <label for="note">
+                        Catatan Pesanan
+                    </label>
+
+                    <textarea
+                        id="note"
+                        placeholder="Contoh: Tolong antar sore hari."
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="orderButton"
+                class="order-btn"
+                onclick="sendOrder()"
+            >
+                📲 PESAN SEKARANG VIA WHATSAPP
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- INFORMASI -->
+
+    <section class="info">
+
+
+        <div class="info-box">
+
+            <div class="icon">
+                🥚
+            </div>
+
+            <h3>
+                Produk Pilihan
+            </h3>
+
+            <p>
+                Pilih jenis dan jumlah telur sesuai kebutuhan.
+            </p>
+
+        </div>
+
+
+        <div class="info-box">
+
+            <div class="icon">
+                📲
+            </div>
+
+            <h3>
+                Pesan via WhatsApp
+            </h3>
+
+            <p>
+                Pesanan langsung dikirim ke admin.
+            </p>
+
+        </div>
+
+
+        <div class="info-box">
+
+            <div class="icon">
+                🚚
+            </div>
+
+            <h3>
+                Layanan Pengantaran
+            </h3>
+
+            <p>
+                Masukkan alamat agar pesanan dapat diproses.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <strong>
+        JASA ONLINE
+    </strong>
+
+    <p>
+        Layanan pemesanan telur secara online.
+    </p>
+
+
+    <a
+        class="footer-wa"
+        href="https://wa.me/62895702479040"
+        target="_blank"
+    >
+        💬 Hubungi WhatsApp
+    </a>
+
+</footer>
+
+
+<!-- FLOATING WHATSAPP -->
+
+<a
+    class="floating-wa"
+    href="https://wa.me/62895702479040"
+    target="_blank"
+    aria-label="WhatsApp"
+>
+    💬
+</a>
+
+
+<script>
+
+/* =====================================================
+   DATA PRODUK
+   =====================================================
+
+   HARGA DI BAWAH INI ADALAH HARGA CONTOH.
+
+   NANTI BISA KITA GANTI SESUAI HARGA ASLI.
+   ===================================================== */
+
+const PRODUCTS = [
+
+    {
+        id: "telur-ayam",
+        name: "Telur Ayam",
+        unit: "1 papan / ±30 butir",
+        price: 60000,
+        icon: "🥚"
+    },
+
+    {
+        id: "telur-bebek",
+        name: "Telur Bebek",
+        unit: "1 papan / ±30 butir",
+        price: 85000,
+        icon: "🥚"
+    },
+
+    {
+        id: "telur-puyuh",
+        name: "Telur Puyuh",
+        unit: "1 bungkus",
+        price: 25000,
+        icon: "🐣"
+    },
+
+    {
+        id: "telur-ayam-kampung",
+        name: "Telur Ayam Kampung",
+        unit: "1 papan / ±30 butir",
+        price: 90000,
+        icon: "🥚"
+    }
+
+];
+
+
+/* =====================================================
+   NOMOR WHATSAPP ADMIN
+   ===================================================== */
+
+const WHATSAPP_NUMBER = "62895702479040";
+
+
+/* =====================================================
+   BIAYA PENGANTARAN
+
+   Saat ini Rp0.
+
+   Nanti bisa kita buat sistem ongkir berdasarkan
+   wilayah atau jarak.
+   ===================================================== */
+
+const DELIVERY_COST = 0;
+
+
+/* =====================================================
+   KERANJANG
+   ===================================================== */
+
+let cart = JSON.parse(
+    localStorage.getItem("jasaOnlineCart") || "{}"
+);
+
+
+/* =====================================================
+   FORMAT RUPIAH
+   ===================================================== */
+
+function rupiah(number){
+
+    return new Intl.NumberFormat(
+        "id-ID",
+        {
+            style:"currency",
+            currency:"IDR",
+            maximumFractionDigits:0
+        }
+    ).format(number);
+
+}
+
+
+/* =====================================================
+   TAMPILKAN PRODUK
+   ===================================================== */
+
+function renderProducts(){
+
+    const container =
+        document.getElementById("products");
+
+    container.innerHTML = "";
+
+    PRODUCTS.forEach(product => {
+
+        container.innerHTML += `
+
+            <div class="product">
+
+                <div class="product-icon">
+                    ${product.icon}
+                </div>
+
+                <h3>
+                    ${product.name}
+                </h3>
+
+                <div class="unit">
+                    ${product.unit}
+                </div>
+
+                <div class="price">
+                    ${rupiah(product.price)}
+                </div>
+
+                <button
+                    class="add-btn"
+                    onclick="addToCart('${product.id}')"
+                >
+                    + Tambah Pesanan
+                </button>
+
+            </div>
+
+        `;
+
+    });
+
+}
+
+
+/* =====================================================
+   TAMBAH KE KERANJANG
+   ===================================================== */
+
+function addToCart(id){
+
+    if(!cart[id]){
+        cart[id] = 0;
+    }
+
+    cart[id]++;
+
+    saveCart();
+
+    renderCart();
+
+}
+
+
+/* =====================================================
+   TAMBAH JUMLAH
+   ===================================================== */
+
+function increase(id){
+
+    if(!cart[id]){
+        cart[id] = 0;
+    }
+
+    cart[id]++;
+
+    saveCart();
+
+    renderCart();
+
+}
+
+
+/* =====================================================
+   KURANGI JUMLAH
+   ===================================================== */
+
+function decrease(id){
+
+    if(cart[id]){
+        cart[id]--;
+    }
+
+    if(cart[id] <= 0){
+        delete cart[id];
+    }
+
+    saveCart();
+
+    renderCart();
+
+}
+
+
+/* =====================================================
+   HAPUS PRODUK
+   ===================================================== */
+
+function removeItem(id){
+
+    delete cart[id];
+
+    saveCart();
+
+    renderCart();
+
+}
+
+
+/* =====================================================
+   SIMPAN KERANJANG
+   ===================================================== */
+
+function saveCart(){
+
+    localStorage.setItem(
+        "jasaOnlineCart",
+        JSON.stringify(cart)
+    );
+
+}
+
+
+/* =====================================================
+   HITUNG SUBTOTAL
+   ===================================================== */
+
+function getSubtotal(){
+
+    let total = 0;
+
+    PRODUCTS.forEach(product => {
+
+        const qty =
+            cart[product.id] || 0;
+
+        total +=
+            product.price * qty;
+
+    });
+
+    return total;
+
+}
+
+
+/* =====================================================
+   TAMPILKAN KERANJANG
+   ===================================================== */
+
+function renderCart(){
+
+    const container =
+        document.getElementById("cartItems");
+
+    const empty =
+        document.getElementById("emptyCart");
+
+    const cartCount =
+        document.getElementById("cartCount");
+
+    const subtotalElement =
+        document.getElementById("subtotal");
+
+    const deliveryElement =
+        document.getElementById("deliveryCost");
+
+    const grandTotalElement =
+        document.getElementById("grandTotal");
+
+
+    container.innerHTML = "";
+
+    let totalItems = 0;
+
+
+    PRODUCTS.forEach(product => {
+
+        const qty =
+            cart[product.id] || 0;
+
+
+        if(qty > 0){
+
+            totalItems += qty;
+
+            const total =
+                product.price * qty;
+
+
+            container.innerHTML += `
+
+                <div class="cart-item">
+
+                    <div class="cart-info">
+
+                        <strong>
+                            ${product.name}
+                        </strong>
+
+                        <small>
+                            ${rupiah(product.price)}
+                            / ${product.unit}
+                        </small>
+
+                        <button
+                            class="remove"
+                            onclick="removeItem('${product.id}')"
+                        >
+                            Hapus
+                        </button>
+
+                    </div>
+
+
+                    <div class="qty">
+
+                        <button
+                            onclick="decrease('${product.id}')"
+                        >
+                            −
+                        </button>
+
+                        <span>
+                            ${qty}
+                        </span>
+
+                        <button
+                            onclick="increase('${product.id}')"
+                        >
+                            +
+                        </button>
+
+                    </div>
+
+
+                    <div class="item-total">
+
+                        ${rupiah(total)}
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+
+    });
+
+
+    cartCount.textContent =
+        totalItems;
+
+
+    empty.style.display =
+        totalItems === 0
+        ? "block"
+        : "none";
+
+
+    const subtotal =
+        getSubtotal();
+
+
+    subtotalElement.textContent =
+        rupiah(subtotal);
+
+
+    deliveryElement.textContent =
+        rupiah(DELIVERY_COST);
+
+
+    grandTotalElement.textContent =
+        rupiah(
+            subtotal + DELIVERY_COST
+        );
+
+}
+
+
+/* =====================================================
+   NOMOR PESANAN
+   ===================================================== */
+
+function generateOrderNumber(){
+
+    const now =
+        new Date();
+
+    const date =
+        now.getFullYear().toString() +
+        String(now.getMonth()+1).padStart(2,"0") +
+        String(now.getDate()).padStart(2,"0");
+
+    const random =
+        Math.floor(
+            1000 +
+            Math.random() * 9000
+        );
+
+    return "JO-" + date + "-" + random;
+
+}
+
+
+/* =====================================================
+   KIRIM PESANAN
+   ===================================================== */
+
+function sendOrder(){
+
+    const subtotal =
+        getSubtotal();
+
+
+    if(subtotal <= 0){
+
+        alert(
+            "Keranjang masih kosong. Silakan pilih produk terlebih dahulu."
+        );
+
+        return;
+
+    }
+
+
+    const name =
+        document
+        .getElementById("customerName")
+        .value
+        .trim();
+
+
+    const phone =
+        document
+        .getElementById("customerPhone")
+        .value
+        .trim();
+
+
+    const delivery =
+        document
+        .getElementById("delivery")
+        .value;
+
+
+    const address =
+        document
+        .getElementById("address")
+        .value
+        .trim();
+
+
+    const note =
+        document
+        .getElementById("note")
+        .value
+        .trim();
+
+
+    if(!name){
+
+        alert(
+            "Silakan isi nama pelanggan."
+        );
+
+        document
+        .getElementById("customerName")
+        .focus();
+
+        return;
+
+    }
+
+
+    if(!phone){
+
+        alert(
+            "Silakan isi nomor WhatsApp pelanggan."
+        );
+
+        document
+        .getElementById("customerPhone")
+        .focus();
+
+        return;
+
+    }
+
+
+    if(
+        delivery === "Antar" &&
+        !address
+    ){
+
+        alert(
+            "Silakan isi alamat pengantaran."
+        );
+
+        document
+        .getElementById("address")
+        .focus();
+
+        return;
+
+    }
+
+
+    const orderNumber =
+        generateOrderNumber();
+
+
+    let message = "";
+
+
+    message +=
+        "🛒 *PESANAN JASA ONLINE*%0A";
+
+
+    message +=
+        "━━━━━━━━━━━━━━━━━━%0A";
+
+
+    message +=
+        "🧾 *Nomor Pesanan:* " +
+        orderNumber +
+        "%0A";
+
+
+    message +=
+        "👤 *Nama:* " +
+        name +
+        "%0A";
+
+
+    message +=
+        "📱 *WhatsApp:* " +
+        phone +
+        "%0A";
+
+
+    message +=
+        "🚚 *Metode:* " +
+        delivery +
+        "%0A";
+
+
+    message +=
+        "━━━━━━━━━━━━━━━━━━%0A";
+
+
+    message +=
+        "🥚 *DETAIL PESANAN*%0A";
+
+
+    PRODUCTS.forEach(product => {
+
+        const qty =
+            cart[product.id] || 0;
+
+
+        if(qty > 0){
+
+            const total =
+                product.price * qty;
+
+
+            message +=
+                "• " +
+                product.name +
+                " x " +
+                qty +
+                " = " +
+                rupiah(total) +
+                "%0A";
+
+        }
+
+    });
+
+
+    message +=
+        "━━━━━━━━━━━━━━━━━━%0A";
+
+
+    message +=
+        "💰 *Subtotal:* " +
+        rupiah(subtotal) +
+        "%0A";
+
+
+    message +=
+        "🚚 *Pengantaran:* " +
+        rupiah(DELIVERY_COST) +
+        "%0A";
+
+
+    message +=
+        "💵 *TOTAL:* " +
+        rupiah(
+            subtotal +
+            DELIVERY_COST
+        ) +
+        "%0A";
+
+
+    message +=
+        "━━━━━━━━━━━━━━━━━━%0A";
+
+
+    if(address){
+
+        message +=
+            "📍 *Alamat:*%0A" +
+            address +
+            "%0A";
+
+    }
+
+
+    if(note){
+
+        message +=
+            "📝 *Catatan:*%0A" +
+            note +
+            "%0A";
+
+    }
+
+
+    message +=
+        "━━━━━━━━━━━━━━━━━━%0A";
+
+
+    message +=
+        "Mohon konfirmasi pesanan saya. Terima kasih.";
+
+
+    const whatsappURL =
+        "https://wa.me/" +
+        WHATSAPP_NUMBER +
+        "?text=" +
+        message;
+
+
+    window.open(
+        whatsappURL,
+        "_blank"
+    );
+
+}
+
+
+/* =====================================================
+   MULAI APLIKASI
+   ===================================================== */
+
+renderProducts();
+
+renderCart();
+
+</script>
+
+</body>
+</html>
